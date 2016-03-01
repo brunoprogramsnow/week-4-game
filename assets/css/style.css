@@ -1,0 +1,13 @@
+body{
+	background-color: red;
+} 
+#logo{
+	width: 400px;
+	float:right;
+	padding-top: 50px;
+	padding-right: 30px;
+} 
+.fighters{
+	padding-top: 30px; 
+	width: 150px;
+}

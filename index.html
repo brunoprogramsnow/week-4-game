@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>Street Fighter</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body> 
+	<img src="assets/images/Logo.jpg" id='logo'>
+	<img src="assets/images/ryu.jpeg" class='fighters'>
+	<img src="assets/images/ken.jpg" class='fighters'>
+	<img src="assets/images/chunli.jpg" class='fighters'>
+	<img src="assets/images/blanka.jpg" class='fighters'>
+
+
+<script src="assets/javascript"type="text/javascipt">
+$(document).ready(function()){
+	var playerChoice
+	var enemyChoice 
+}
+function identifiers( name, attack, health, counter, url){
+	this.name = Name; 
+	this.attack =Attack; 
+	this.health =Health; 
+	this.counter = Counter; 
+	this.imageUrl= Url; 
+}  
+
+var fighters= [ ryu =new identifiers('Ryu', 20, 100, 5,"assets/images/ryu.jpeg"),
+ken = new identifiers('Ken', 15, 80, 15,"assets/images/ken.jpg"),
+chunli = new identifiers('Chun Li',30, 65, 5,"assets/images/chunli.jpg"), 
+blanka = new identifiers('Blanka', 25, 80, 15,"assets/images/blanka.jpg")]; 
+
+function battle(god,enemy){
+	god.health -= enemy.counter; 
+	enemy.health -= god.attack; 
+	var responses={ 
+     godHit: enemy.name + " hit you for " + enemy.counter + "!" + " Your health is now:  " + god.health,
+            enemyHit: "You hit " + enemy.name + " for " + god.attack + "! " + enemy.name + "'s health is now: " + enemy.health,
+            godLose: enemy.name + " has defeated you!",
+            godWin: god.name + " has defeated " + enemy.name + "!"
+        };
+        $('.responses').empty();
+        $('.responses').append('<p>' + responses.godHit + '</p>');
+        $('.responses').append(responses.enemyHit);
+        god.attack += 3;
+
+        if (enemy.health <= 0) {
+            $('.responses').empty();
+            $('.responses').append(responses.godWin);
+            $('#' + chosenEnemy.name + '').hide();
+        } else if (god.health <= 0) {
+            $('.responses').empty();
+            $('.responses').append(responses.godLose);
+        }
+    };
+var render= function(){
+	for ( var i =0; i< fighters.length, i++){
+		var name = fighters[i].name; 
+		var godText= $(<div>); 
+		var enemyText=$(<div>);
+		var playerDiv=$(<div>);
+		var showName= ("<p>" + name +"</p>") 
+		var charImage=("<img src='" +fighters[i].imageUrl + name + "' id='" + name + "' >") 
+		var charStats = (
+                "<p class='stats'>ATTACK: <span id=" + name + "> " + fighters[i].attack + "</span></p>" +
+                "<p class='stats'>HEALTH: <span  id=" + name + ">" + fighters[i].health + "</span></p>" +
+                "<p class='stats'>COUNTER: <span  id=" + name + ">" + fighters[i].counter + "</span></p>"); 
+		playerDiv.append$(showName+ charImage+ charStats); 
+		$()
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
